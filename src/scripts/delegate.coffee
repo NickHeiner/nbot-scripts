@@ -14,6 +14,8 @@
 module.exports = (robot) ->
 
   robot.hear /.*/i, (msg) ->
-    msg.http("http://localhost:5000")
-      .get() (err, res, body) ->
-        msg.send body
+    msg.send 'hey. how bout u.'
+#    robot.http("http://localhost:5000")
+#      .get() (err, res, body) ->
+#        unless err
+#          msg.send body
