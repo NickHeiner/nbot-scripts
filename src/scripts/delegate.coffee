@@ -11,11 +11,12 @@
 #   hubot pug me - Receive a pug
 #   hubot pug bomb N - get N pugs
 
+REMOTE_URL = 'http://infinite-plains-2527.herokuapp.com/'
+
 module.exports = (robot) ->
 
   robot.hear /.*/i, (msg) ->
-    msg.send 'hey. how bout u.'
-#    robot.http("http://localhost:5000")
-#      .get() (err, res, body) ->
-#        unless err
-#          msg.send body
+    robot.http(REMOTE_URL + '?message=' + JSON.stringify msg.message)
+      .get() (err, res, body) ->
+        unless err
+          msg.send body
