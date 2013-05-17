@@ -1,5 +1,9 @@
 # Gets border waiting times to US.
 #
+# Dependencies:
+#   "xml2json": "latest"
+#
+#
 # crossing <port_name>
 
 parser = require('xml2json');

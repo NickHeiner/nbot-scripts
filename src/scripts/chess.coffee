@@ -2,7 +2,7 @@
 #   Play a game of chess!
 #
 # Dependencies:
-#   "chess": "0.1.3"
+#   "chess": "0.1.4"
 #
 # Configuration:
 #   None
