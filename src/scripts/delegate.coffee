@@ -11,7 +11,7 @@
 #   hubot pug me - Receive a pug
 #   hubot pug bomb N - get N pugs
 
-REMOTE_URL = 'http://infinite-plains-2527.herokuapp.com/'
+REMOTE_URL = 'http://nbot-python.herokuapp.com/'
 
 module.exports = (robot) ->
 
