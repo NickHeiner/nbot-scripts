@@ -19,8 +19,9 @@ module.exports = (robot) ->
   if not REMOTE_URL
     console.log "Please set #{ REMOTE_URL_ENV_VAR_NAME } to use the delegate script"
 
+
   robot.hear /.*/i, (msg) ->
     robot.http(REMOTE_URL + '?message=' + JSON.stringify msg.message)
       .get() (err, res, body) ->
         unless err
-          msg.send response for response in JSON.parse(body).responses
+          msg.send response for response in JSON.parse(body).messages
