@@ -31,4 +31,7 @@ module.exports = (robot) ->
 
           console.log 'Delegate: response received - ' + body
 
-          msg.send response for response in JSON.parse(body).messages
+          try
+            msg.send response for response in JSON.parse(body).messages
+          catch e
+            console.log 'Delegate: json.parse error: ' + e
