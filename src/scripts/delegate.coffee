@@ -19,4 +19,4 @@ module.exports = (robot) ->
     robot.http(REMOTE_URL + '?message=' + JSON.stringify msg.message)
       .get() (err, res, body) ->
         unless err
-          msg.send body
+          msg.send response for response in JSON.parse(body).responses
