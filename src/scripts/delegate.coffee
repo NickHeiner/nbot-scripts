@@ -21,7 +21,14 @@ module.exports = (robot) ->
 
 
   robot.hear /.*/i, (msg) ->
-    robot.http(REMOTE_URL + '?message=' + JSON.stringify msg.message)
+    proxyUrl = REMOTE_URL + '?message=' + JSON.stringify msg.message
+
+    console.log 'Delegate: proxying to ' + proxyUrl
+
+    robot.http(proxyUrl)
       .get() (err, res, body) ->
         unless err
+
+          console.log 'Delegate: response received - ' + body
+
           msg.send response for response in JSON.parse(body).messages
