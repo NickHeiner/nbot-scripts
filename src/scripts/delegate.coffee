@@ -18,20 +18,19 @@ module.exports = (robot) ->
 
   if not REMOTE_URL
     console.log "Please set #{ REMOTE_URL_ENV_VAR_NAME } to use the delegate script"
+  else
+    robot.hear /.*/i, (msg) ->
+      proxyUrl = REMOTE_URL + '?message=' + JSON.stringify msg.message
 
+      console.log 'Delegate: proxying to ' + proxyUrl
 
-  robot.hear /.*/i, (msg) ->
-    proxyUrl = REMOTE_URL + '?message=' + JSON.stringify msg.message
+      robot.http(proxyUrl)
+        .get() (err, res, body) ->
+          unless err
 
-    console.log 'Delegate: proxying to ' + proxyUrl
+            console.log 'Delegate: response received - ' + body
 
-    robot.http(proxyUrl)
-      .get() (err, res, body) ->
-        unless err
-
-          console.log 'Delegate: response received - ' + body
-
-          try
-            msg.send response for response in JSON.parse(body).messages
-          catch e
-            console.log 'Delegate: json.parse error: ' + e
+            try
+              msg.send response for response in JSON.parse(body).messages
+            catch e
+              console.log 'Delegate: json.parse error: ' + e
