@@ -1,6 +1,6 @@
 {
-    "name": "hubot-scripts",
-    "version": "2.4.3",
+    "name": "nbot-scripts",
+    "version": "1.0.0",
     "author": "hubot",
     "keywords": [
         "hubot",
@@ -8,6 +8,7 @@
         "scripts",
         "campfire",
         "bot",
+        "nbot",
         "robot"
     ],
     "description": "Allows you to opt in to a variety of scripts",
@@ -19,7 +20,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/github/hubot-scripts.git"
+        "url": "https://github.com/nickheiner/nbot-scripts.git"
     },
     "dependencies": {
         
