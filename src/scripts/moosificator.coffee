@@ -16,4 +16,4 @@
 
 module.exports = (robot) ->
   robot.respond /moosificate (me )?(.*)/i, (msg) ->
-      msg.send "http://moosificator.herokuapp.com/api/moose?image=#{ msg.match[2] }"
+      msg.send "http://moosificator.herokuapp.com/api/moose?image=#{ msg.match[2] }&format=.png"
