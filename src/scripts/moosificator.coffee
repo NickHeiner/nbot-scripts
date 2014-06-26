@@ -8,12 +8,12 @@
 #   None
 #
 # Commands:
-#   hubot moose url - Moosificates your face. 
+#   hubot moosificate (me) url - Moosificates your face. 
 #
 # Author:
 #   alexandre.normand
 
 
 module.exports = (robot) ->
-  robot.respond /moose (me )?(.*)/i, (msg) ->
-      msg.send "http://moosificator.herokuapp.com/api/moose?image=#{ msg.match[1] }"
+  robot.respond /moosificate (me )?(.*)/i, (msg) ->
+      msg.send "http://moosificator.herokuapp.com/api/moose?image=#{ msg.match[2] }"
