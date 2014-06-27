@@ -24,7 +24,7 @@ module.exports = (robot) ->
       msg.send "#{moosificator}#{mooseQuery}&format=.png"
     else
       imageMe msg, mooseQuery, (url) ->
-        msg.send "#{moosificator}#{url}&format=.png"
+        msg.send "#{moosificator}#{url}"
 
 imageMe = (msg, query, cb) ->
   msg.http('http://ajax.googleapis.com/ajax/services/search/images')
