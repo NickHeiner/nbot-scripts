@@ -13,10 +13,8 @@
 # Author:
 #   ben.packer
 
-# Send the message with probability 1/frequency
-frequency = 100
-
+# Send the message with probability 1/process.env.HUBOT_LUMOLIFT_FREQUENCY
 module.exports = (robot) ->
   robot.hear /./, (msg) ->
-    if msg.message.room in process.env.HUBOT_LUMOLIFT_ACTIVE_ROOMS.split(',').map(Number) and Math.floor(Math.random()*frequency)==0
+    if msg.message.room in process.env.HUBOT_LUMOLIFT_ACTIVE_ROOMS.split(',').map(Number) and Math.floor(Math.random()*parseInt(process.env.HUBOT_LUMOLIFT_FREQUENCY))==0
        msg.send "LUMOLIFT!"
