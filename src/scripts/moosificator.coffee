@@ -21,19 +21,19 @@
 
 module.exports = (robot) ->
   robot.respond /(moosificate(?:_(\w+))?|antlerificate) (me )?(.*)/i, (msg) ->
-    keyword = msg.match[0]
-    mooseName = msg.match[1]
-    mooseQuery = msg.match[3]
+    keyword = msg.match[1]
+    mooseName = msg.match[2]
+    mooseQuery = msg.match[4]
 
 
     if keyword.match /^moosificate/i
       command = "moose"
       if mooseName?
-        command += "/" + mooseName
+        command += "/#{moosename}"
     else if keyword.match /^antlerificate/i
       command = "antler"
 
-    moosificator = "http://moosificator.herokuapp.com/api/" + command + "?image="
+    moosificator = "http://moosificator.herokuapp.com/api/#{command}?image="
 
     if mooseQuery.match /^https?:\/\//i
       msg.send "#{moosificator}#{mooseQuery}&format=.png"
