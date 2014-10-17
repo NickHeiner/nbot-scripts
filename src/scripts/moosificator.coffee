@@ -30,7 +30,7 @@ module.exports = (robot) ->
     if keyword.match /^moosificate/i
       command = "moose"
       if mooseName?
-        command += "/#{moosename}"
+        command += "/#{mooseName}"
     else if keyword.match /^antlerificate/i
       command = "antler"
     else if keyword.match /^moosificanimate/i
