@@ -35,7 +35,7 @@ module.exports = (robot) ->
       command = "antler"
     else if keyword.match /^moosificanimate/i
       command = "moose"
-      query = query + " face"
+      query = mooseQuery + " face"
       animated = true
 
     moosificator = "http://moosificator.herokuapp.com/api/#{command}?image="
